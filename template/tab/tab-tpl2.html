@@ -1,0 +1,16 @@
+<!-- 导航条tab by wwupower -->
+<ul class='power-nav-tab'>
+	<li ng-repeat='t in tabsConfig.data' ng-class="{'active':t.isActive}" ng-click='tabsConfig.activeTab($index)'>
+		<span> 		
+			{{t.name}}	
+		</span>		
+		<span class='power-tab-close' ng-if='t.isCanClose' ng-click='tabsConfig.removeTab($index)'> 
+		</span>
+	</li>
+	<div class='clear'></div>
+</ul>
+<div class='power-tab-contain' id='' style="padding-top: 5px">
+	<div id='tabCon_{{$index}}' ng-show='t.isActive'  ng-repeat='t in tabsConfig.data'>
+		<iframe ng-show='t.isActive' ng-if='t.isIframe&&t.immediately' id='tabIframe_{{$index}}' name='tabIframe_{{$index}}' id='tabIframe_{{$index}}' ng-src='{{t.url}}' width='100%' height='{{tabsConfig.height}}' frameborder='0' scrolling='auto' marginheight='0' marginwidth='0'></iframe>
+	</div>							
+</div>
